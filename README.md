@@ -1,5 +1,5 @@
-# Description
-Power Hardware-in-the-loop is a method of testing power converter circuits by emulating the circuit using the mathematical model of the circuit. This project utilizes the state space equation of the circuit as a lightweight model for the circuit.
+# Power Hardware-in-the-loop
+Power Hardware-in-the-loop (PHIL) is a method of testing power converter circuits by emulating the circuit using the mathematical model of the circuit. This project specifically implements PHIL for DC-DC Converter control system testing. The implementation is targeted on the Eclypse Z7 platform which is equipped with the Zynq-7000 series SoC. This project utilizes the state space equation of the circuit as a lightweight model for the circuit.
 
 $$
 \dot{x} = A x + B u
@@ -14,6 +14,17 @@ RTL directory stores the RTL verilog files. These Verilog files are copied into 
 constr directory includes the constraint files for the FPGA implementation. These constraints targets the Eclypse Z7 platform with Zmod 1410 and Zmod 1411 as the ADC and DAC. The PMOD can also be used as an alternative of the ADC to get the PWM input.
 
 The app_component directory includes the baremetal C code for the PS side which mainly manage the communication with PC.
+
+## Platform
+This project is implemented and tested with these tools:
+1. Vivado 2024.1
+2. Vitis 2024.1
+
+The system is implemented on Eclypse Z7 SoC board complete with the Zmod 1411 and Zmod 1410 installed on the SYZYGY ports. The board files can be obtained here
+https://github.com/Digilent/vivado-boards
+
+To use the Zmod modules, some additional IP has to be added into Vivado.
+https://github.com/Digilent/vivado-library/tree/zmod/v2/2019.1-2/ip
 
 ## Setup
 To start implementing, follow these steps:
